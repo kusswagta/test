@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% include 'menu.html' %}
+{% block content  %}
+{% for post in posts %}
+<h3>Title:{{ post.title }}</h1>
+{% if post.image %}
+    <img src="{{ post.image.url}}">
+{% endif %}
+
+
+ <p>{{ post.description|safe|truncatewords:"50"|linebreaks }}</p>
+  <a href="#">read more</a>
+<hr />
+{% endfor %}
+{% endblock%}
+
+<style>
+body {
+    padding-left: 15px;
+}
+</style>
